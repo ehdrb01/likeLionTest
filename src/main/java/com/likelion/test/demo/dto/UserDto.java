@@ -2,6 +2,7 @@ package com.likelion.test.demo.dto;
 
 import com.likelion.test.demo.entity.User;
 import com.likelion.test.demo.request.UserRequest;
+import com.likelion.test.demo.request.UserUpdateRequest;
 import lombok.*;
 
 @Getter
@@ -29,6 +30,16 @@ public class UserDto {
                 .gender(userRequest.getGender())
                 .phoneNumber(userRequest.getPhoneNumber())
                 .studentId(userRequest.getStudentId())
+                .build();
+    }
+    public static UserDto toUpdate(UserUpdateRequest userUpdateRequest) {
+        return UserDto.builder()
+                .userName(userUpdateRequest.getUserName())
+                .userId(userUpdateRequest.getUserId())
+                .age(userUpdateRequest.getAge())
+                .gender(userUpdateRequest.getGender())
+                .phoneNumber(userUpdateRequest.getPhoneNumber())
+                .studentId(userUpdateRequest.getStudentId())
                 .build();
     }
 }

@@ -3,6 +3,7 @@ package com.likelion.test.demo.controller;
 import com.likelion.test.demo.dto.UserDto;
 import com.likelion.test.demo.entity.User;
 import com.likelion.test.demo.request.UserRequest;
+import com.likelion.test.demo.request.UserUpdateRequest;
 import com.likelion.test.demo.response.UserResponse;
 import com.likelion.test.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -60,9 +61,9 @@ public class UserController {
         return ResponseEntity.ok(null);
     }
     @PatchMapping("/update")
-    public ResponseEntity<UserResponse> updateUser(@RequestBody UserRequest userRequest) {
-        userService.updateUserInfo(UserDto.toAdd(userRequest));
-        User user = User.toUser(UserDto.toAdd(userRequest));
+    public ResponseEntity<UserResponse> updateUser(@RequestBody UserUpdateRequest userUpdateRequest) {
+        userService.updateUserInfo(UserDto.toUpdate(userUpdateRequest));
+        User user = User.toUser(UserDto.toUpdate(userUpdateRequest));
         UserResponse userResponse = UserResponse.from(user);
 
         return ResponseEntity.ok(userResponse);
