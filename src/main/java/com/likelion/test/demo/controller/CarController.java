@@ -4,6 +4,7 @@ import com.likelion.test.demo.dto.CarDto;
 import com.likelion.test.demo.entity.Car;
 import com.likelion.test.demo.entity.User;
 import com.likelion.test.demo.request.CarRequest;
+import com.likelion.test.demo.request.CarUpdateRequest;
 import com.likelion.test.demo.response.CarResponse;
 import com.likelion.test.demo.response.UserResponse;
 import com.likelion.test.demo.service.CarService;
@@ -55,8 +56,8 @@ public class CarController {
         return ResponseEntity.ok(carResponseList);
     }
     @PatchMapping("/update")
-    public ResponseEntity<Void> updateCar(@RequestBody CarRequest carRequest) {
-        carService.updateCar(CarDto.toAdd(carRequest));
+    public ResponseEntity<Void> updateCar(@RequestBody CarUpdateRequest carUpdateRequest) {
+        carService.updateCar(CarDto.toUpdate(carUpdateRequest));
 
         return ResponseEntity.ok(null);
     }

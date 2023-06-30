@@ -1,6 +1,7 @@
 package com.likelion.test.demo.dto;
 
 import com.likelion.test.demo.request.CarRequest;
+import com.likelion.test.demo.request.CarUpdateRequest;
 import com.likelion.test.demo.response.CarResponse;
 import lombok.*;
 
@@ -19,10 +20,17 @@ public class CarDto {
 
     public static CarDto toAdd(CarRequest carRequest) {
         return CarDto.builder()
-                .carId(carRequest.getCarId())
                 .carColor(carRequest.getCarColor())
                 .carNumber(carRequest.getCarNumber())
                 .carType(carRequest.getCarType())
+                .build();
+    }
+    public static CarDto toUpdate(CarUpdateRequest carUpdateRequest) {
+        return CarDto.builder()
+                .carId(carUpdateRequest.getCarId())
+                .carType(carUpdateRequest.getCarType())
+                .carNumber(carUpdateRequest.getCarNumber())
+                .carColor(carUpdateRequest.getCarColor())
                 .build();
     }
 }
