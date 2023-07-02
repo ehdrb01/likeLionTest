@@ -61,4 +61,11 @@ public class CarController {
 
         return ResponseEntity.ok(null);
     }
+
+    @GetMapping("/get/user/{id}")
+    public ResponseEntity<List<CarDto>> getCarByUserId(@PathVariable Long id) {
+        List<CarDto> carDtoList = carService.findCarByUserId(id).stream().map(CarDto::toResponse).collect(Collectors.toList());
+
+        return ResponseEntity.ok(carDtoList);
+    }
 }

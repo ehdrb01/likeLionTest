@@ -44,6 +44,10 @@ public class User {
                 .build();
     }
 
+    public void setCarListToCarDto() {
+
+    }
+
 
 
 

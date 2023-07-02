@@ -1,9 +1,13 @@
 package com.likelion.test.demo.dto;
 
+import com.likelion.test.demo.entity.Car;
 import com.likelion.test.demo.entity.User;
 import com.likelion.test.demo.request.UserRequest;
 import com.likelion.test.demo.request.UserUpdateRequest;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,6 +26,8 @@ public class UserDto {
     private String phoneNumber;
 
     private Boolean gender;
+
+    private List<CarDto> carDtoList = new ArrayList<>();
 
     public static UserDto toAdd(UserRequest userRequest) {
         return UserDto.builder()

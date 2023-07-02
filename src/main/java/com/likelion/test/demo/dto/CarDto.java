@@ -1,5 +1,6 @@
 package com.likelion.test.demo.dto;
 
+import com.likelion.test.demo.entity.Car;
 import com.likelion.test.demo.request.CarRequest;
 import com.likelion.test.demo.request.CarUpdateRequest;
 import com.likelion.test.demo.response.CarResponse;
@@ -33,4 +34,14 @@ public class CarDto {
                 .carColor(carUpdateRequest.getCarColor())
                 .build();
     }
+
+    public static CarDto toResponse(Car car) {
+        return CarDto.builder()
+                .carId(car.getCarId())
+                .carColor(car.getCarColor())
+                .carNumber(car.getCarNumber())
+                .carType(car.getCarType())
+                .build();
+    }
+
 }
